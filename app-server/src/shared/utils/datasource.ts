@@ -2,6 +2,7 @@ import { ConfigService } from '@nestjs/config';
 import { DataSource } from 'typeorm';
 import { config } from 'dotenv';
 import { Init1726688978008 } from '../../migrations/1726688978008-init';
+import { User } from '../../users/entities/user.entity';
 
 config();
 
@@ -14,7 +15,7 @@ export const getConnectionSource = (configService: ConfigService) => {
     username: configService.get<string>('DB_USERNAME'),
     password: configService.get<string>('DB_PASSWORD'),
     synchronize: false,
-    entities: ['src/**/*.entity{.ts}', 'src/**/*.entity{.js}'],
+    entities: [User],
     migrations: [Init1726688978008],
     migrationsTableName: 'migrations',
   });
