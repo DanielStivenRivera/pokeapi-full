@@ -3,10 +3,10 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  CreateDateColumn,
 } from 'typeorm';
-import { CreateDateColumn } from 'typeorm/browser';
 
-@Entity()
+@Entity('users')
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
